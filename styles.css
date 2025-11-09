@@ -1,0 +1,261 @@
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --accent: #06d6a0;
+    --light: #f8fafc;
+    --dark: #0f172a;
+    --transition: all 0.45s cubic-bezier(.25, .46, .45, .94);
+    --gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06d6a0 100%);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Importante para âncoras */
+}
+
+/* CORREÇÃO PRINCIPAL - NAVBAR */
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--light);
+    color: #334155;
+    transition: var(--transition);
+    padding-top: 80px; /* Espaço para a navbar fixa */
+    margin: 0;
+}
+
+.dark body {
+    background: var(--dark);
+    color: #cbd5e1;
+}
+
+/* NAVBAR CORRIGIDA */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark nav {
+    background: rgba(15, 23, 42, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* HEADER CORRIGIDO */
+header#home {
+    position: relative;
+    z-index: 1;
+    min-height: calc(100vh - 80px);
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* small utilities used in the page (kept outside Tailwind for quick edits) */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.gradient-text {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.btn-magnetic {
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.btn-magnetic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+    transition: var(--transition);
+}
+
+.btn-magnetic:hover::before {
+    left: 100%;
+}
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all .7s cubic-bezier(.25, .46, .45, .94);
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+
+.hero-bg {
+    background: radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.08) 0%, transparent 40%), 
+                radial-gradient(circle at 80% 20%, rgba(6, 214, 160, 0.06) 0%, transparent 40%);
+}
+
+/* profile orb improvements */
+.profile-orb {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.profile-orb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* skill bars */
+.skill-bar {
+    height: 8px;
+    background: #e6eef9;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.skill-fill {
+    height: 100%;
+    background: var(--primary);
+    width: 0;
+    transition: width 1.4s cubic-bezier(.65, 0, .35, 1);
+}
+
+/* timeline */
+.timeline-item {
+    position: relative;
+    padding-left: 44px;
+    margin-bottom: 36px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    background: var(--primary);
+    box-shadow: 0 0 0 6px rgba(99, 102, 241, 0.08);
+}
+
+/* back-to-top */
+#backToTop {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    background: var(--primary);
+    color: white;
+    padding: 12px;
+    border-radius: 999px;
+    display: none;
+    z-index: 60;
+    border: none;
+    cursor: pointer;
+}
+
+#backToTop.show {
+    display: block;
+}
+
+/* navigation links */
+.nav-link {
+    transition: var(--transition);
+    position: relative;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: var(--transition);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+footer a {
+    transition: var(--transition);
+}
+
+/* Garantir que as seções fiquem abaixo da navbar */
+section {
+    position: relative;
+    z-index: 1;
+}
+
+/* responsive tweaks */
+@media (max-width: 1024px) {
+    .profile-orb {
+        width: 260px;
+        height: 260px;
+    }
+}
+
+@media (max-width: 640px) {
+    body {
+        padding-top: 70px;
+    }
+    
+    nav {
+        height: 70px;
+    }
+    
+    header#home {
+        min-height: calc(100vh - 70px);
+    }
+    
+    .profile-orb {
+        width: 200px;
+        height: 200px;
+    }
+    
+    html {
+        scroll-padding-top: 70px;
+    }
+}
+
+/* Mobile menu específico */
+#mobileMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: inherit;
+    backdrop-filter: inherit;
+}
+
+.dark #mobileMenu {
+    background: inherit;
+}

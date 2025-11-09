@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juvêncio Miambo | Engenheiro de Software & Inovador</title>
+
+    <!-- Tailwind (prod-ready CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Google Fonts + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Optional small particles lib -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+
+<body class="transition-colors duration-500" aria-live="polite">
+
+    <!-- Particles container (visual) -->
+    <div id="particles-js" aria-hidden="true" style="position:fixed;inset:0;z-index:-1;"></div>
+
+    <!-- NAV -->
+    <nav class="fixed w-full z-50 py-4 bg-white/60 backdrop-blur border-b border-white/20 dark:bg-gray-900/70">
+        <div class="container mx-auto px-6 flex items-center justify-between">
+            <a href="#home" class="flex items-center space-x-3">
+                <div
+                    class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-green-400 flex items-center justify-center text-white font-bold">
+                    JM</div>
+                <span class="font-semibold">Juvêncio Jonas Miambo</span>
+            </a>
+            <div class="hidden lg:flex items-center space-x-6 text-sm text-gray-700 dark:text-gray-300">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">Sobre</a>
+                <a href="#skills" class="nav-link">Competências</a>
+                <a href="#projects" class="nav-link">Projetos</a>
+                <a href="#experience" class="nav-link">Experiência</a>
+                <a href="#contact" class="nav-link">Contato</a>
+            </div>
+
+            <div class="flex items-center space-x-3">
+                <button id="themeToggle" class="p-2 rounded-lg glass-effect" aria-label="Alternar modo claro/escuro">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+                <button id="mobileToggle" class="lg:hidden p-2 rounded-lg glass-effect" aria-expanded="false"
+                    aria-controls="mobileMenu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- mobile menu -->
+        <div id="mobileMenu" class="hidden lg:hidden px-6 py-4 border-t border-gray-200/30">
+            <div class="flex flex-col space-y-3">
+                <a href="#home">Home</a>
+                <a href="#about">Sobre</a>
+                <a href="#skills">Competências</a>
+                <a href="#projects">Projetos</a>
+                <a href="#experience">Experiência</a>
+                <a href="#contact">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="home" class="min-h-screen flex items-center hero-bg pt-24">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="scroll-reveal">
+                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/90 shadow mb-6">
+                        <div class="w-2 h-2 rounded-full bg-green-400 mr-3 animate-pulse"></div>
+                        <span class="text-sm font-medium">Aberto a estágios e colaborações</span>
+                    </div>
+
+                    <h1 class="text-4xl lg:text-6xl font-extrabold leading-tight mb-4">
+                        <span class="gradient-text">Juvêncio Jonas</span> <span
+                            class="text-gray-800 dark:text-gray-100">Miambo</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mb-6">Estudante do 4º ano de Engenharia
+                        de Tecnologias e Sistemas de Informação — especialização em Engenharia de Software. Inclinação
+                        para Backend, experiente também em Frontend. Crio APIs escaláveis, sistemas robustos e
+                        interfaces limpas.</p>
+
+                    <div class="flex space-x-4">
+                        <a href="#projects"
+                            class="btn-magnetic bg-gradient-to-r from-indigo-500 to-indigo-700 text-white font-semibold px-5 py-3 rounded-xl shadow">Ver
+                            Projetos</a>
+                        <a href="#contact"
+                            class="btn-magnetic border border-indigo-500 text-indigo-600 font-semibold px-5 py-3 rounded-xl">Contactar</a>
+                    </div>
+
+                    <div class="mt-6 flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-300">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>4º Ano — Engenharia</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fab fa-github"></i>
+                            <a href="#" class="underline">github.com/juvencio</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scroll-reveal flex justify-center lg:justify-end">
+                    <div class="profile-orb shadow-2xl glass-effect">
+                        <!-- replace src with the real picture (square crop recommended) -->
+                        <img src="../Portifolio/IMG/Profile.png"
+                            alt="Foto de Juvêncio Miambo" id="profileImg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 scroll-reveal">
+                <h2 class="text-3xl font-extrabold gradient-text">Sobre Mim</h2>
+                <p class="text-gray-600 dark:text-gray-300 mt-3 max-w-2xl mx-auto">Sou estudante do 4º ano de Engenharia
+                    de Tecnologias e Sistemas de Informação com formação focada em Engenharia de Software. Gosto de
+                    arquitectar soluções backend, construir APIs e trabalhar com bases de dados, mas também sei criar
+                    frontends responsivos e acessíveis.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="glass-effect rounded-2xl p-6 shadow">
+                    <h3 class="font-bold text-lg mb-3">Filosofia</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Construir software resiliente e simples — código
+                        legível, testes bons e documentação clara. Resolver problemas reais com tecnologia.</p>
+                </div>
+                <div class="glass-effect rounded-2xl p-6 shadow">
+                    <h3 class="font-bold text-lg mb-3">Números</h3>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <div class="text-2xl font-extrabold gradient-text">2+</div>
+                            <div class="text-sm text-gray-500">Anos de experiência</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-extrabold gradient-text">10+</div>
+                            <div class="text-sm text-gray-500">Projetos pessoais</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-extrabold gradient-text">10+</div>
+                            <div class="text-sm text-gray-500">Tecnologias</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-effect rounded-2xl p-6 shadow">
+                    <h3 class="font-bold text-lg mb-3">Objetivo</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Buscar oportunidades em backend e Engenharia de
+                        Software, participar em projetos que façam impacto e continuar a aprender microservices, cloud
+                        eobservability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 scroll-reveal">
+                <h2 class="text-3xl font-extrabold gradient-text">Competências</h2>
+                <p class="text-gray-600 dark:text-gray-300 mt-3 max-w-2xl mx-auto">Técnicas e profissionais que uso
+                    diariamente</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="space-y-6 scroll-reveal">
+                    <div>
+                        <div class="flex justify-between mb-2"><span>Desenvolvimento Frontend</span><span
+                                class="font-bold">80%</span></div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="95"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2"><span>Desenvolvimento Backend</span><span
+                                class="font-bold">95%</span></div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="92"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2"><span>APIs & Microservices</span><span
+                                class="font-bold">90%</span></div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2"><span>Bancos de Dados</span><span
+                                class="font-bold">88%</span></div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="88"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6 scroll-reveal">
+                    <div>
+                        <div class="flex justify-between mb-2"><span>Gestão de Projetos</span><span
+                                class="font-bold">85%</span></div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2"><span>Liderança Técnica</span><span
+                                class="font-bold">82%</span></div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="82"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2"><span>Comunicação</span><span
+                                class="font-bold">90%</span></div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2"><span>Resolução de Problemas</span><span
+                                class="font-bold">94%</span></div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="94"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- tech stack icons -->
+            <div class="mt-12 scroll-reveal">
+                <h3 class="font-bold mb-4">Tecnologias</h3>
+                <div class="flex flex-wrap gap-4 items-center">
+                    <span class="p-3 bg-white rounded-lg shadow">Java</span>
+                    <span class="p-3 bg-white rounded-lg shadow">Spring Boot</span>
+                    <span class="p-3 bg-white rounded-lg shadow">C# .NET</span>
+                    <span class="p-3 bg-white rounded-lg shadow">React</span>
+                    <span class="p-3 bg-white rounded-lg shadow">Node.js</span>
+                    <span class="p-3 bg-white rounded-lg shadow">SQL</span>
+                    <span class="p-3 bg-white rounded-lg shadow">Docker</span>
+                    <span class="p-3 bg-white rounded-lg shadow">Git</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 scroll-reveal">
+                <h2 class="text-3xl font-extrabold gradient-text">Projetos</h2>
+                <p class="text-gray-600 dark:text-gray-300 mt-3 max-w-2xl mx-auto">Uma seleção dos meus projetos mais
+                    representativos — com foco em backend, APIs e soluções full-stack.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project card (duplicate for more) -->
+                <article
+                    class="scroll-reveal bg-white rounded-2xl shadow p-6 hover:shadow-lg transition-transform transform hover:-translate-y-2">
+                    <div
+                        class="h-40 bg-gradient-to-br from-indigo-200 to-green-100 rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-school text-3xl text-indigo-600"></i>
+                    </div>
+                    <h4 class="font-bold text-lg">Sistema de Gestão Escolar</h4>
+                    <p class="text-sm text-gray-600 mt-2">Plataforma full-stack para gestão académica com API REST,
+                        autenticação e painel administrativo.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="text-sm text-gray-500">Java • Spring Boot • React</div>
+                        <a href="#" class="text-indigo-600">Ver código</a>
+                    </div>
+                </article>
+
+                <article
+                    class="scroll-reveal bg-white rounded-2xl shadow p-6 hover:shadow-lg transition-transform transform hover:-translate-y-2">
+                    <div
+                        class="h-40 bg-gradient-to-br from-indigo-200 to-green-100 rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-wallet text-3xl text-indigo-600"></i>
+                    </div>
+                    <h4 class="font-bold text-lg">API de Finanças Pessoais</h4>
+                    <p class="text-sm text-gray-600 mt-2">API para gestão de transações, categorização e relatórios
+                        com testes automatizados.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="text-sm text-gray-500">Python • Django • PostgreSQL</div>
+                        <a href="#" class="text-indigo-600">Ver código</a>
+                    </div>
+                </article>
+
+                <article
+                    class="scroll-reveal bg-white rounded-2xl shadow p-6 hover:shadow-lg transition-transform transform hover:-translate-y-2">
+                    <div
+                        class="h-40 bg-gradient-to-br from-indigo-200 to-green-100 rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-user-astronaut text-3xl text-indigo-600"></i>
+                    </div>
+                    <h4 class="font-bold text-lg">Portfólio Pessoal</h4>
+                    <p class="text-sm text-gray-600 mt-2">Este site — portfolio responsivo com animações, modo escuro e
+                        design moderno.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="text-sm text-gray-500">HTML • CSS • JS • Tailwind</div>
+                        <a href="#" class="text-indigo-600">Ver código</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE / TIMELINE -->
+    <section id="experience" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 scroll-reveal">
+                <h2 class="text-3xl font-extrabold gradient-text">Experiência & Educação</h2>
+                <p class="text-gray-600 dark:text-gray-300 mt-3 max-w-2xl mx-auto">Linha do tempo com marcos académicos
+                    e projectos relevantes.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="timeline-item scroll-reveal">
+                    <h4 class="font-bold">2022 — Estágio na TechStartup</h4>
+                    <p class="text-gray-600">Participação no desenvolvimento de microservices e pipelines de CI/CD.</p>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <h4 class="font-bold">2021 — Projeto: API de Finanças</h4>
+                    <p class="text-gray-600">Design e implementação da API com testes e integração contínua.</p>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <h4 class="font-bold">2019 — Ingresso na Universidade</h4>
+                    <p class="text-gray-600">Início da licenciatura em Engenharia de Tecnologias e Sistemas de
+                        Informação.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 scroll-reveal">
+                <h2 class="text-3xl font-extrabold gradient-text">Contato</h2>
+                <p class="text-gray-600 dark:text-gray-300 mt-3 max-w-2xl mx-auto">Quer trabalhar comigo? Envia uma
+                    mensagem — respondo em breve.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+                <form id="contactForm" class="space-y-4 bg-white rounded-2xl p-6 shadow">
+                    <div>
+                        <label class="text-sm">Nome</label>
+                        <input type="text" id="name" required class="w-full mt-2 p-3 rounded border"
+                            placeholder="Teu nome">
+                    </div>
+                    <div>
+                        <label class="text-sm">Email</label>
+                        <input type="email" id="email" required class="w-full mt-2 p-3 rounded border"
+                            placeholder="teu@exemplo.com">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-sm">Mensagem</label>
+                        <textarea id="message" rows="6" required class="w-full mt-2 p-3 rounded border"
+                            placeholder="Como posso ajudar?"></textarea>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <button type="submit"
+                            class="bg-gradient-to-r from-indigo-600 to-indigo-800 text-white px-5 py-3 rounded-xl">Enviar
+                            Mensagem</button>
+                        <div class="text-sm text-gray-500">ou manda email para <button id="copyEmail"
+                                class="underline">juvencio@example.com</button></div>
+                    </div>
+                </form>
+
+                <div class="space-y-6 p-6">
+                    <div class="bg-white rounded-2xl p-4 shadow">
+                        <h4 class="font-bold">Informações</h4>
+                        <p class="text-sm text-gray-600">Maputo, Moçambique • Disponível para estágios e projetos
+                            remotos</p>
+                        <div class="mt-4 flex space-x-2">
+                            <a href="#" class="p-3 rounded-lg bg-gray-100 hover:bg-gray-200"><i
+                                    class="fab fa-github"></i></a>
+                            <a href="#" class="p-3 rounded-lg bg-gray-100 hover:bg-gray-200"><i
+                                    class="fab fa-linkedin"></i></a>
+                            <a href="#" class="p-3 rounded-lg bg-gray-100 hover:bg-gray-200"><i
+                                    class="fas fa-file-download"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-4 shadow">
+                        <h4 class="font-bold">Resumo Rápido</h4>
+                        <ul class="text-sm text-gray-600 mt-2 space-y-2">
+                            <li>Inclinação principal: Backend (APIs, Microservices)</li>
+                            <li>Também experiente em Frontend (React, HTML/CSS)</li>
+                            <li>Forte com bancos de dados e performance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-200 py-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                    <h5 class="font-bold text-white">Juvêncio Miambo</h5>
+                    <p class="text-sm text-gray-400 mt-2">Estudante de Engenharia — apaixonado por backend, APIs e
+                        soluções escaláveis.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold text-white">Links Rápidos</h5>
+                    <ul class="mt-2 text-sm text-gray-400 space-y-2">
+                        <li><a href="#projects">Projetos</a></li>
+                        <li><a href="#experience">Experiência</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-white">Contato</h5>
+                    <p class="text-sm text-gray-400 mt-2">juvencio@example.com<br>Maputo, Moçambique</p>
+                    <div class="mt-4 flex items-center space-x-3">
+                        <a href="#" class="p-2 rounded bg-white/6 hover:bg-white/10"><i class="fab fa-github"></i></a>
+                        <a href="#" class="p-2 rounded bg-white/6 hover:bg-white/10"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="p-2 rounded bg-white/6 hover:bg-white/10"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 border-t border-gray-800/50 pt-6 text-center text-sm text-gray-400">
+                © <span id="currentYear"></span> Juvêncio Miambo • Todos os direitos reservados • <a href="#"
+                    class="underline">Política de Privacidade</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- back to top -->
+    <button id="backToTop" class="shadow-lg" aria-label="Voltar ao topo"><i class="fas fa-chevron-up"></i></button>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
