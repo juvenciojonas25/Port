@@ -1,5 +1,4 @@
 // Basic interactive JS (accessible + progressive enhancement)
-alert("JS carregado!");
 document.addEventListener('DOMContentLoaded', () => {
     // theme toggle
     const themeToggle = document.getElementById('themeToggle');
@@ -80,4 +79,5 @@ document.addEventListener('DOMContentLoaded', () => {
             interactivity: { events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } }, modes: { repulse: { distance: 80 } } }, retina_detect: true
         });
     }
+
 });
